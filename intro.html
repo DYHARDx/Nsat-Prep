@@ -1,1 +1,327 @@
-bvbbf
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Questions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-light: #a5b4fc;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+            --gray-light: #e2e8f0;
+            --accent: #f59e0b;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        /* Image Slider Styles */
+        .slider-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 16px 16px 16px 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 30px; /* Added space between slider and questions */
+        }
+        
+        .slider {
+            display: flex;
+            width: 500%;
+            height: 100%;
+            animation: slide 20s infinite;
+        }
+        
+        .slide {
+            width: 20%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+        
+      .slide1 { background-image: url('https://images.pexels.com/photos/3184644/pexels-photo-3184644.jpeg'); }
+.slide2 { background-image: url('https://images.pexels.com/photos/4143799/pexels-photo-4143799.jpeg'); }
+.slide3 { background-image: url('https://images.pexels.com/photos/5212336/pexels-photo-5212336.jpeg'); }
+.slide4 { background-image: url('https://images.pexels.com/photos/7973205/pexels-photo-7973205.jpeg'); }
+.slide5 { background-image: url('https://images.pexels.com/photos/4144224/pexels-photo-4144224.jpeg'); }
+    
+    
+    
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            15% { transform: translateX(0); }
+            20% { transform: translateX(-20%); }
+            35% { transform: translateX(-20%); }
+            40% { transform: translateX(-40%); }
+            55% { transform: translateX(-40%); }
+            60% { transform: translateX(-60%); }
+            75% { transform: translateX(-60%); }
+            80% { transform: translateX(-80%); }
+            95% { transform: translateX(-80%); }
+            100% { transform: translateX(0); }
+        }
+        
+        .main-content {
+            animation: fadeInUp 0.6s ease-out forwards;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 0 0 16px 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transform: translateY(0);
+            opacity: 1;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        }
+        
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .section {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--gray-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .section:hover {
+            background-color: rgba(248, 250, 252, 0.6);
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .section-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            font-weight: bold;
+        }
+        
+        .questions-container {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .question {
+            padding: 14px 0 14px 48px;
+            font-size: 15px;
+            color: var(--dark);
+            position: relative;
+            line-height: 1.5;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            transition-delay: 0.1s;
+        }
+        
+        .question:before {
+            content: "";
+            position: absolute;
+            left: 28px;
+            top: 22px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--accent);
+        }
+        
+        .question-label {
+            display: inline-block;
+            font-weight: 600;
+            margin-right: 8px;
+            color: var(--primary);
+        }
+        
+        .divider {
+            height: 1px;
+            background-color: var(--gray-light);
+            margin: 0 24px;
+            transition: all 0.3s ease;
+        }
+        
+        .arrow {
+            display: inline-block;
+            margin-left: 10px;
+            transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .expanded {
+            background-color: rgba(248, 250, 252, 0.8);
+        }
+        
+        .expanded .arrow {
+            transform: rotate(90deg);
+        }
+        
+        .expanded .questions-container {
+            max-height: 500px;
+        }
+        
+        .expanded .question {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .expanded + .divider {
+            opacity: 0;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px 0;
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        .footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide slide1"></div>
+                <div class="slide slide2"></div>
+                <div class="slide slide3"></div>
+                <div class="slide slide4"></div>
+                <div class="slide slide5"></div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="section" onclick="toggleSection(this)">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="section-icon">Q</div>
+                        What is Java?
+                    </div>
+                </div>
+                <div class="questions-container">
+                    <div class="question">
+                        <span class="question-label">English:</span>
+                        Java is a high-level, class-based, object-oriented programming language.
+                    </div>
+                    <div class="question">
+                        <span class="question-label">Hinglish:</span>
+                        Java ek high-level, class-based, object-oriented programming language hai.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="section" onclick="toggleSection(this)">
+                <div class="section-header">
+                    <div class="section-title">
+                       <div class="section-icon">Q</div>
+                        What is OOP?
+                    </div>
+                </div>
+                <div class="questions-container">
+                    <div class="question">
+                        <span class="question-label">English:</span>
+                        OOP (Object-Oriented Programming) is a programming paradigm based on objects.
+                    </div>
+                    <div class="question">
+                        <span class="question-label">Hinglish:</span>
+                        OOP (Object-Oriented Programming) ek programming paradigm hai jo objects pe based hoti hai.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            © 2025 BY <a href="https://www.youtube.com/@CodeXAmn" target="_blank">DYHARD</a> | All Rights Reserved
+        </div>
+    </div>
+
+    <script>
+        function toggleSection(section) {
+            const wasExpanded = section.classList.contains('expanded');
+            
+            // Close all sections first
+            document.querySelectorAll('.section').forEach(sec => {
+                sec.classList.remove('expanded');
+            });
+            
+            // If it wasn't already expanded, expand it
+            if (!wasExpanded) {
+                section.classList.add('expanded');
+            }
+            
+            // Animate questions
+            const questions = section.querySelectorAll('.question');
+            questions.forEach((q, i) => {
+                q.style.transitionDelay = `${i * 0.1}s`;
+            });
+        }
+        
+        // Add slight delay to container animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.main-content');
+            setTimeout(() => {
+                container.style.opacity = 1;
+                container.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html> is code ko destop or mobile dono ke liye user friedly banao
