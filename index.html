@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Topics</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            gap: 12px;
+            background: #f4f4f4;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            border: 2px solid #007BFF;
+            border-radius: 6px;
+            background: white;
+            color: #007BFF;
+            transition: all 0.2s ease;
+            width: 280px;
+            text-align: center;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #007BFF;
+            color: white;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="redirect('introduction.html')">Introduction & Personal Insight</button>
+    <button onclick="redirect('academic.html')">Academic Background & Interests</button>
+    <button onclick="redirect('college.html')">Why This College?</button>
+    <button onclick="redirect('guesstimate.html')">Guesstimate Questions</button>
+    <button onclick="redirect('mathematics.html')">Mathematics</button>
+    <button onclick="redirect('tech_ai.html')">Tech & AI</button>
+    <button onclick="redirect('career_goals.html')">Career Goals & Future Plans</button>
+    <button onclick="redirect('extracurricular.html')">Extracurricular & Hobbies</button>
+    
+    <footer>BY DYHARD</footer>
+
+    <script>
+        function redirect(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>
