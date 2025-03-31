@@ -3,59 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interview Topics</title>
+    <title>DYHARD - Interview Prep</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #6366f1;
+            --primary-light: #a5b4fc;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+            --gray-light: #e2e8f0;
+            --accent: #f59e0b;
+        }
+        
         body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        /* Image Slider Styles */
+        .slider-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        
+        .slider {
+            display: flex;
+            width: 500%;
+            height: 100%;
+            animation: slide 20s infinite;
+        }
+        
+        .slide {
+            width: 20%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .slide1 { background-image: url('https://images.pexels.com/photos/3184644/pexels-photo-3184644.jpeg'); }
+        .slide2 { background-image: url('https://images.pexels.com/photos/4143799/pexels-photo-4143799.jpeg'); }
+        .slide3 { background-image: url('https://images.pexels.com/photos/5212336/pexels-photo-5212336.jpeg'); }
+        .slide4 { background-image: url('https://images.pexels.com/photos/7973205/pexels-photo-7973205.jpeg'); }
+        .slide5 { background-image: url('https://images.pexels.com/photos/4144224/pexels-photo-4144224.jpeg'); }
+        
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            15% { transform: translateX(0); }
+            20% { transform: translateX(-20%); }
+            35% { transform: translateX(-20%); }
+            40% { transform: translateX(-40%); }
+            55% { transform: translateX(-40%); }
+            60% { transform: translateX(-60%); }
+            75% { transform: translateX(-60%); }
+            80% { transform: translateX(-80%); }
+            95% { transform: translateX(-80%); }
+            100% { transform: translateX(0); }
+        }
+        
+        /* Header Styles */
+        .header {
+            text-align: center;
+            padding: 20px 0 10px;
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .tagline {
+            color: var(--gray);
+            font-size: 16px;
+        }
+        
+        /* Main Content Styles */
+        .main-content {
+            animation: fadeInUp 0.6s ease-out forwards;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Button Grid Styles */
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 30px 0;
+        }
+        
+        .btn {
+            background: white;
+            border: none;
+            border-radius: 12px;
+            padding: 18px 10px;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--dark);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            gap: 12px;
-            background: #f4f4f4;
-            color: #333;
-            font-family: 'Arial', sans-serif;
-        }
-        button {
-            padding: 12px 24px;
-            font-size: 16px;
-            cursor: pointer;
-            border: 2px solid #007BFF;
-            border-radius: 6px;
-            background: white;
-            color: #007BFF;
-            transition: all 0.2s ease;
-            width: 280px;
+            height: 100px;
             text-align: center;
-            font-weight: bold;
+            line-height: 1.4;
         }
-        button:hover {
-            background: #007BFF;
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: white;
         }
-        footer {
-            margin-top: 20px;
+        
+        .btn-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        
+        /* Footer Styles */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px 0;
+            color: var(--gray);
             font-size: 14px;
-            color: #555;
+        }
+        
+        .footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 <body>
-    <button onclick="redirect('introduction.html')">Introduction & Personal Insight</button>
-    <button onclick="redirect('academic.html')">Academic Background & Interests</button>
-    <button onclick="redirect('college.html')">Why This College?</button>
-    <button onclick="redirect('guesstimate.html')">Guesstimate Questions</button>
-    <button onclick="redirect('mathematics.html')">Mathematics</button>
-    <button onclick="redirect('tech_ai.html')">Tech & AI</button>
-    <button onclick="redirect('career_goals.html')">Career Goals & Future Plans</button>
-    <button onclick="redirect('extracurricular.html')">Extracurricular & Hobbies</button>
-    
-    <footer>BY DYHARD</footer>
+    <div class="main-content">
+        <div class="header">
+            <div class="logo">DYHARD</div>
+            <div class="tagline">Interview Preparation Portal</div>
+        </div>
+        
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide slide1"></div>
+                <div class="slide slide2"></div>
+                <div class="slide slide3"></div>
+                <div class="slide slide4"></div>
+                <div class="slide slide5"></div>
+            </div>
+        </div>
+        
+        <div class="button-grid">
+            <button class="btn" onclick="window.location.href='exp1.html'">
+                <span class="btn-icon">👤</span>
+                Introduction & Personal Insight
+            </button>
+            <button class="btn" onclick="window.location.href='exp2.html'">
+                <span class="btn-icon">🎓</span>
+                Academic Background & Interests
+            </button>
+            <button class="btn" onclick="window.location.href='exp3.html'">
+                <span class="btn-icon">🏛️</span>
+                Why This College?
+            </button>
+            <button class="btn" onclick="window.location.href='exp4.html'">
+                <span class="btn-icon">🧮</span>
+                Guesstimate Questions
+            </button>
+            <button class="btn" onclick="window.location.href='exp5.html'">
+                <span class="btn-icon">➗</span>
+                Mathematics
+            </button>
+            <button class="btn" onclick="window.location.href='exp6.html'">
+                <span class="btn-icon">🤖</span>
+                Tech & AI
+            </button>
+            <button class="btn" onclick="window.location.href='exp7.html'">
+                <span class="btn-icon">🚀</span>
+                Career Goals & Future Plans
+            </button>
+            <button class="btn" onclick="window.location.href='exp8.html'">
+                <span class="btn-icon">⚽</span>
+                Extracurricular & Hobbies
+            </button>
+        </div>
+        
+        <div class="footer">
+            © 2025 BY <a href="https://www.youtube.com/@CodeXAmn" target="_blank">DYHARD</a> | All Rights Reserved
+        </div>
+    </div>
 
     <script>
-        function redirect(page) {
-            window.location.href = page;
-        }
+        // Add slight delay to container animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.main-content');
+            setTimeout(() => {
+                container.style.opacity = 1;
+                container.style.transform = 'translateY(0)';
+            }, 100);
+        });
     </script>
 </body>
 </html>
