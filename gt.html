@@ -316,23 +316,345 @@
             </div>
         </div>
         
+      <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Questions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-light: #a5b4fc;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+            --gray-light: #e2e8f0;
+            --accent: #f59e0b;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        .slider-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin: 20px auto 30px;
+            max-width: 800px;
+        }
+        
+        .slider {
+            display: flex;
+            width: 500%;
+            height: 100%;
+            animation: slide 20s infinite;
+        }
+        
+        .slide {
+            width: 20%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .slide1 { background-image: url('https://images.pexels.com/photos/3184644/pexels-photo-3184644.jpeg'); }
+        .slide2 { background-image: url('https://images.pexels.com/photos/4143799/pexels-photo-4143799.jpeg'); }
+        .slide3 { background-image: url('https://images.pexels.com/photos/5212336/pexels-photo-5212336.jpeg'); }
+        .slide4 { background-image: url('https://images.pexels.com/photos/7973205/pexels-photo-7973205.jpeg'); }
+        .slide5 { background-image: url('https://images.pexels.com/photos/4144224/pexels-photo-4144224.jpeg'); }
+    
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            15% { transform: translateX(0); }
+            20% { transform: translateX(-20%); }
+            35% { transform: translateX(-20%); }
+            40% { transform: translateX(-40%); }
+            55% { transform: translateX(-40%); }
+            60% { transform: translateX(-60%); }
+            75% { transform: translateX(-60%); }
+            80% { transform: translateX(-80%); }
+            95% { transform: translateX(-80%); }
+            100% { transform: translateX(0); }
+        }
+        
+        .main-content {
+            animation: fadeInUp 0.6s ease-out forwards;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transform: translateY(0);
+            opacity: 1;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        }
+        
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .section {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--gray-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .section:hover {
+            background-color: rgba(248, 250, 252, 0.6);
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-grow: 1;
+        }
+        
+        .section-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .questions-container {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .question {
+            padding: 14px 0 14px 48px;
+            font-size: 15px;
+            color: var(--dark);
+            position: relative;
+            line-height: 1.5;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            transition-delay: 0.1s;
+        }
+        
+        .question:before {
+            content: "";
+            position: absolute;
+            left: 28px;
+            top: 22px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--accent);
+        }
+        
+        .question-label {
+            display: inline-block;
+            font-weight: 600;
+            margin-right: 8px;
+            color: var(--primary);
+        }
+        
+        .divider {
+            height: 1px;
+            background-color: var(--gray-light);
+            margin: 0 24px;
+            transition: all 0.3s ease;
+        }
+        
+        .arrow {
+            display: inline-block;
+            margin-left: 10px;
+            transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            color: var(--primary);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .expanded {
+            background-color: rgba(248, 250, 252, 0.8);
+        }
+        
+        .expanded .arrow {
+            transform: rotate(90deg);
+        }
+        
+        .expanded .questions-container {
+            max-height: 1000px;
+        }
+        
+        .expanded .question {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .expanded + .divider {
+            opacity: 0;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px 0;
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        .footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 15px;
+            }
+            
+            .slider-container {
+                height: 150px;
+                border-radius: 12px;
+                margin-bottom: 20px;
+            }
+            
+            .section {
+                padding: 16px 18px;
+            }
+            
+            .section-title {
+                font-size: 16px;
+                gap: 10px;
+            }
+            
+            .section-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 14px;
+            }
+            
+            .question {
+                padding: 12px 0 12px 40px;
+                font-size: 14px;
+            }
+            
+            .question:before {
+                left: 24px;
+                top: 18px;
+            }
+            
+            .divider {
+                margin: 0 18px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .slider-container {
+                height: 120px;
+                border-radius: 10px;
+            }
+            
+            .section-title {
+                font-size: 15px;
+            }
+            
+            .section-icon {
+                width: 28px;
+                height: 28px;
+            }
+            
+            .question {
+                padding: 10px 0 10px 36px;
+            }
+            
+            .question:before {
+                left: 20px;
+                top: 16px;
+                width: 6px;
+                height: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide slide1"></div>
+                <div class="slide slide2"></div>
+                <div class="slide slide3"></div>
+                <div class="slide slide4"></div>
+                <div class="slide slide5"></div>
+            </div>
+        </div>
+        
         <div class="container">
-            <div class="section expanded" onclick="toggleSection(this)">
+            <!-- Previous questions remain here -->
+            
+            <!-- New Estimation Questions Added Below -->
+            <div class="section" onclick="toggleSection(this)">
                 <div class="section-header">
                     <div class="section-title">
                         <div class="section-icon">Q</div>
-                        Can you introduce yourself briefly?
+                        How many emails are sent worldwide in one day?
                         <span class="arrow">›</span>
                     </div>
                 </div>
                 <div class="questions-container">
                     <div class="question">
                         <span class="question-label">English:</span>
-                        My name is Aman, a Class 12 student at Mahatma Gandhi Inter College. I am passionate about software development and problem-solving. I am learning Java, DSA, and development from Apna College's Sigma 7.0M batch. I have built apps like BYamn App Store and an Interview Preparation App. My goal is to become a Software Developer at Google or Microsoft.
+                        I will estimate the global population (around 8 billion), assume 50% use email, and that each person sends about 10 emails a day. Then, multiply these numbers together.
                     </div>
                     <div class="question">
                         <span class="question-label">Hinglish:</span>
-                        Mera naam Aman hai, main Mahatma Gandhi Inter College me Class 12 ka student hoon. Mujhe software development aur problem-solving ka bahut shauk hai. Main Java, DSA aur development Apna College ke Sigma 7.0M batch se seekh raha hoon. Maine BYamn App Store aur ek Interview Preparation App banaya hai. Mera goal Google ya Microsoft me Software Developer banna hai.
+                        Global population (8 billion) ko dhyan mein rakhte hue, main maanunga ki 50% log email use karte hain aur har ek person 10 emails daily bhejta hai. Phir inn numbers ko multiply karke estimate karunga.
                     </div>
                 </div>
             </div>
@@ -343,20 +665,18 @@
                 <div class="section-header">
                     <div class="section-title">
                         <div class="section-icon">Q</div>
-                        What are your strengths and weaknesses?
+                        How many basketballs and volleyballs can fit inside a Boeing 747?
                         <span class="arrow">›</span>
                     </div>
                 </div>
                 <div class="questions-container">
                     <div class="question">
                         <span class="question-label">English:</span>
-                        <strong>Strengths:</strong> I am a problem solver, quick learner, and a consistent coder. I work well in teams and take initiative. <br>
-                        <strong>Weaknesses:</strong> I tend to focus too much on perfection, struggle with public speaking, and sometimes find it hard to prioritize tasks.
+                        I will first estimate the cargo space of a Boeing 747 (around 1700 cubic meters) and then calculate the volume of each basketball (0.007 cubic meters) and volleyball (0.004 cubic meters). Finally, divide the cargo volume by the volume of each ball to estimate how many can fit.
                     </div>
                     <div class="question">
                         <span class="question-label">Hinglish:</span>
-                        <strong>Strengths:</strong> Mujhe problems solve karna pasand hai, main jaldi seekhta hoon aur coding me consistent hoon. Team me achha kaam karta hoon aur initiative leta hoon. <br>
-                        <strong>Weaknesses:</strong> Kabhi-kabhi main perfection pe zyada dhyan deta hoon, public speaking me confident nahi hoon, aur tasks ko prioritize karna mushkil lagta hai.
+                        Boeing 747 ki cargo space (1700 cubic meters) ko estimate karne ke baad, main har basketball (0.007 cubic meters) aur volleyball (0.004 cubic meters) ka volume calculate karunga aur phir cargo volume ko divide karunga.
                     </div>
                 </div>
             </div>
@@ -367,18 +687,18 @@
                 <div class="section-header">
                     <div class="section-title">
                         <div class="section-icon">Q</div>
-                        What is a non-academic achievement you're proud of?
+                        How many cups of tea are consumed in India daily?
                         <span class="arrow">›</span>
                     </div>
                 </div>
                 <div class="questions-container">
                     <div class="question">
                         <span class="question-label">English:</span>
-                        My biggest non-academic achievement is creating BYamn App Store, which provides free access to premium apps and courses for students. I built it using Sketchware and Firebase while overcoming database limitations.
+                        Estimating India's population (around 1.4 billion), I'll assume that 70% of people drink tea daily, and that each person drinks an average of 2 cups. I will then multiply these numbers to find the daily consumption.
                     </div>
                     <div class="question">
                         <span class="question-label">Hinglish:</span>
-                        Mera sabse bada non-academic achievement <strong>BYamn App Store</strong> banana hai, jo students ko free me premium apps aur courses provide karta hai. Maine ise Sketchware aur Firebase ka use karke banaya hai aur database limitations ka smartly solution nikaala hai.
+                        India ki population (1.4 billion) ko dhyan mein rakhte hue, main maanunga ki 70% log daily chai peete hain aur har ek person average 2 cups chai peeta hai. Phir inn numbers ko multiply karunga.
                     </div>
                 </div>
             </div>
@@ -389,18 +709,18 @@
                 <div class="section-header">
                     <div class="section-title">
                         <div class="section-icon">Q</div>
-                        Where do you see yourself in 5 years?
+                        How many mobile phones are sold in India every month?
                         <span class="arrow">›</span>
                     </div>
                 </div>
                 <div class="questions-container">
                     <div class="question">
                         <span class="question-label">English:</span>
-                        In 5 years, I see myself as a Software Developer at a top-tier company like Google or Microsoft. I want to master Competitive Programming, Full-Stack Development, and System Design while also growing my YouTube channel to educate beginners in coding.
+                        I will estimate India's population (1.4 billion), assume 90% of people use mobile phones, and consider the upgrade cycle (every 3 years). This will give me the number of phones sold monthly.
                     </div>
                     <div class="question">
                         <span class="question-label">Hinglish:</span>
-                        Agle 5 saal me, main ek <strong>Software Developer</strong> banna chahta hoon jo Google ya Microsoft jaisi company me kaam kare. Mera focus <strong>Competitive Programming, Full-Stack Development, aur System Design</strong> pe hoga. Sath hi, apni <strong>YouTube channel CodeXAmn</strong> ko bhi grow karunga jisse beginners ko coding seekhne me madad mile.
+                        India ki population (1.4 billion) ko dhyan mein rakhte hue, main maanunga ki 90% log mobile phones use karte hain aur phone upgrade cycle (har 3 saal) ko dekhte hue, monthly phone sales estimate karunga.
                     </div>
                 </div>
             </div>
@@ -411,18 +731,18 @@
                 <div class="section-header">
                     <div class="section-title">
                         <div class="section-icon">Q</div>
-                        What makes you unique compared to other applicants?
+                        How many petrol pumps are there in Mumbai?
                         <span class="arrow">›</span>
                     </div>
                 </div>
                 <div class="questions-container">
                     <div class="question">
                         <span class="question-label">English:</span>
-                        My uniqueness lies in my combination of problem-solving skills, self-learning ability, and real-world project experience. Unlike many applicants, I have already built applications that help people and have a YouTube channel where I teach coding.
+                        I will estimate the number of petrol pumps by considering the number of cars in Mumbai (around 10 million), and estimate that each petrol pump serves an average of 5,000 cars. Then I'll divide the total number of cars by 5,000 to get the number of petrol pumps.
                     </div>
                     <div class="question">
                         <span class="question-label">Hinglish:</span>
-                        Meri uniqueness ye hai ki mujhe <strong>problem-solving, self-learning, aur real-world projects ka experience</strong> hai. Bahut se applicants sirf academics pe focus karte hain, par maine already aise applications banaye hain jo logon ki help karte hain. Saath hi, <strong>YouTube pe coding sikhata hoon</strong>, jo mujhe aur bhi alag banata hai.
+                        Mumbai mein petrol pumps ki sankhya estimate karte hue, main maanunga ki Mumbai mein 10 million cars hain aur har petrol pump ko 5000 cars serve karni padti hain. Phir total cars ko 5000 se divide karke estimate karunga.
                     </div>
                 </div>
             </div>
@@ -433,22 +753,260 @@
                 <div class="section-header">
                     <div class="section-title">
                         <div class="section-icon">Q</div>
-                        How do you contribute to a team or community?
+                        How many Uber rides happen in Mumbai per day?
                         <span class="arrow">›</span>
                     </div>
                 </div>
                 <div class="questions-container">
                     <div class="question">
                         <span class="question-label">English:</span>
-                        I contribute by taking initiative, helping peers, building open-source projects, and sharing knowledge through my blog and YouTube channel.
+                        I will estimate the number of Uber rides by assuming 5% of the population in Mumbai (around 20 million) uses Uber daily, and that each person takes 2 rides on average. Then, I will calculate the total number of rides.
                     </div>
                     <div class="question">
                         <span class="question-label">Hinglish:</span>
-                        Main team aur community me contribute karta hoon <strong>initiative lekar, peers ki madad karke, open-source projects banakar, aur apne blog aur YouTube channel ke through knowledge share karke</strong>.
+                        Main maanunga ki Mumbai ki population ka 5% (20 million mein se) har din Uber use karta hai aur har person average 2 rides leta hai. Phir total rides ka calculation karunga.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="section" onclick="toggleSection(this)">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="section-icon">Q</div>
+                        How many cricket balls are manufactured in India each year?
+                        <span class="arrow">›</span>
+                    </div>
+                </div>
+                <div class="questions-container">
+                    <div class="question">
+                        <span class="question-label">English:</span>
+                        I will estimate the number of cricket balls by assuming that India has a large cricket fanbase and sports industry, and that around 100,000 cricket balls are produced annually for domestic and international matches.
+                    </div>
+                    <div class="question">
+                        <span class="question-label">Hinglish:</span>
+                        Main maanunga ki India mein kaafi bada cricket fanbase hai aur sports industry bhi badi hai, isliye annually domestic aur international matches ke liye lagbhag 100,000 cricket balls produce hoti hain.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="section" onclick="toggleSection(this)">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="section-icon">Q</div>
+                        How many schools are there in India?
+                        <span class="arrow">›</span>
+                    </div>
+                </div>
+                <div class="questions-container">
+                    <div class="question">
+                        <span class="question-label">English:</span>
+                        I will estimate the number of schools by considering the population of school-going children (around 250 million), assuming an average class size of 30, and then dividing the total number of students by the class size to get the number of schools.
+                    </div>
+                    <div class="question">
+                        <span class="question-label">Hinglish:</span>
+                        School jaane wale bachon ki population (250 million) ko dhyan mein rakhte hue, main maanunga ki average class size 30 hai aur phir students ki total number ko class size se divide karunga schools ka estimate karne ke liye.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="section" onclick="toggleSection(this)">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="section-icon">Q</div>
+                        How many customers visit a McDonald's store in Delhi per day?
+                        <span class="arrow">›</span>
+                    </div>
+                </div>
+                <div class="questions-container">
+                    <div class="question">
+                        <span class="question-label">English:</span>
+                        I will estimate the number of customers by considering the number of McDonald's stores in Delhi (around 50), assuming each store serves 500 customers daily. Then, I'll multiply these numbers.
+                    </div>
+                    <div class="question">
+                        <span class="question-label">Hinglish:</span>
+                        Main maanunga ki Delhi mein 50 McDonald's stores hain aur har store daily 500 customers serve karta hai. Phir inn numbers ko multiply karunga.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="section" onclick="toggleSection(this)">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="section-icon">Q</div>
+                        How many people buy movie tickets in Haryana every weekend?
+                        <span class="arrow">›</span>
+                    </div>
+                </div>
+                <div class="questions-container">
+                    <div class="question">
+                        <span class="question-label">English:</span>
+                        I will estimate the number of movie-goers in Haryana by considering its population (around 30 million), assuming 5% of people go to the movies every weekend, and estimating 2 people per ticket.
+                    </div>
+                    <div class="question">
+                        <span class="question-label">Hinglish:</span>
+                        Haryana ki population (30 million) ko dhyan mein rakhte hue, main maanunga ki 5% log har weekend movie dekhne jaate hain aur har ticket ke liye 2 log hain. Phir estimate karunga.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="section" onclick="toggleSection(this)">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="section-icon">Q</div>
+                        How many liters of water are consumed in Delhi daily?
+                        <span class="arrow">›</span>
+                    </div>
+                </div>
+                <div class="questions-container">
+                    <div class="question">
+                        <span class="question-label">English:</span>
+                        I will estimate the water consumption by considering Delhi's population (around 20 million), assuming an average water usage of 150 liters per person per day.
+                    </div>
+                    <div class="question">
+                        <span class="question-label">Hinglish:</span>
+                        Delhi ki population (20 million) ko dhyan mein rakhte hue, main maanunga ki har person daily 150 liters paani use karta hai. Phir total water consumption ka estimate karunga.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="section" onclick="toggleSection(this)">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="section-icon">Q</div>
+                        How many plastic bottles are used in India per day?
+                        <span class="arrow">›</span>
+                    </div>
+                </div>
+                <div class="questions-container">
+                    <div class="question">
+                        <span class="question-label">English:</span>
+                        I will estimate the number of plastic bottles by considering the population of India (1.4 billion), assuming 60% use bottled water, and that each person consumes 1 bottle daily.
+                    </div>
+                    <div class="question">
+                        <span class="question-label">Hinglish:</span>
+                        India ki population (1.4 billion) ko dhyan mein rakhte hue, main maanunga ki 60% log bottled water use karte hain aur har person daily 1 bottle consume karta hai. Phir total bottles ka estimate karunga.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="section" onclick="toggleSection(this)">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="section-icon">Q</div>
+                        How many YouTube videos are uploaded globally in one day?
+                        <span class="arrow">›</span>
+                    </div>
+                </div>
+                <div class="questions-container">
+                    <div class="question">
+                        <span class="question-label">English:</span>
+                        I will estimate the number of videos by considering the global internet users (around 5 billion), assuming that 20% of users upload videos, and estimating 2 videos per person per day.
+                    </div>
+                    <div class="question">
+                        <span class="question-label">Hinglish:</span>
+                        Main global internet users (5 billion) ko dhyan mein rakhte hue, main maanunga ki 20% users videos upload karte hain aur har person daily 2 videos upload karta hai. Phir total videos ka estimate karunga.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="section" onclick="toggleSection(this)">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="section-icon">Q</div>
+                        How many words does an average person speak in a lifetime?
+                        <span class="arrow">›</span>
+                    </div>
+                </div>
+                <div class="questions-container">
+                    <div class="question">
+                        <span class="question-label">English:</span>
+                        I will estimate the number of words by considering the average number of words spoken per day (around 16,000), multiplying it by the average lifespan (around 70 years), and calculating the total number of words spoken in a lifetime.
+                    </div>
+                    <div class="question">
+                        <span class="question-label">Hinglish:</span>
+                        Main maanunga ki ek person har din average 16,000 words bolta hai aur uski lifespan 70 years hai, phir inn numbers ko multiply karke lifetime ke total words ka estimate karunga.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="section" onclick="toggleSection(this)">
+                <div class="section-header">
+                    <div class="section-title">
+                        <div class="section-icon">Q</div>
+                        How many software engineers graduate in India each year?
+                        <span class="arrow">›</span>
+                    </div>
+                </div>
+                <div class="questions-container">
+                    <div class="question">
+                        <span class="question-label">English:</span>
+                        I will estimate the number of software engineers graduating in India by considering the number of engineering colleges (around 5,000), assuming 30% offer computer science courses, and estimating 100 graduates per college.
+                    </div>
+                    <div class="question">
+                        <span class="question-label">Hinglish:</span>
+                        India mein engineering colleges (5,000 ke aas-paas) ko dhyan mein rakhte hue, main maanunga ki 30% colleges computer science courses offer karte hain aur har college se 100 graduates hote hain. Phir total graduates ka estimate karunga.
                     </div>
                 </div>
             </div>
         </div>
+        
+        <div class="footer">
+            © 2025 BY <a href="https://www.youtube.com/@CodeXAmn" target="_blank">DYHARD</a> | Newton's School Of Technology
+        </div>
+    </div>
+
+    <script>
+        function toggleSection(section) {
+            const wasExpanded = section.classList.contains('expanded');
+            
+            if (!wasExpanded) {
+                document.querySelectorAll('.section').forEach(sec => {
+                    sec.classList.remove('expanded');
+                });
+            }
+            
+            section.classList.toggle('expanded');
+            
+            const questions = section.querySelectorAll('.question');
+            questions.forEach((q, i) => {
+                q.style.transitionDelay = `${i * 0.1}s`;
+            });
+            
+            if (!wasExpanded) {
+                setTimeout(() => {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.main-content');
+            setTimeout(() => {
+                container.style.opacity = 1;
+                container.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
         
         <div class="footer">
             © 2025 BY <a href="https://www.youtube.com/@CodeXAmn" target="_blank">DYHARD</a> | Newton's School Of Technology
