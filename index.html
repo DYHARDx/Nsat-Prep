@@ -10,36 +10,61 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="app-header">
-        <div class="user-welcome">
-            <h1>Welcome, Nset Prep</h1>
-            <p class="date"></p>
-        </div>
-        <div class="header-icons">
-            <div class="theme-buttons">
-                <button id="lightModeBtn" class="theme-btn light-btn" onclick="setThemeMode('light')">
-                    <i class="fas fa-sun"></i>
-                </button>
-                <button id="darkModeBtn" class="theme-btn dark-btn" onclick="setThemeMode('dark')">
-                    <i class="fas fa-moon"></i>
-                </button>
-            </div>
-            <a href="profile.html" class="profile-link">
-                <i class="fas fa-user" id="profileIcon"></i>
-            </a>
-        </div>
-    </header>
-
-    <!-- Welcome Banner -->
-    <div class="welcome-banner">
-        <div class="welcome-text">
-            <h2>Welcome, Our Future NSTian! <span class="rocket">🚀</span></h2>
-            <button class="about-btn" id="aboutBtn">About...</button>
-        </div>
-        <div class="logo">N</div>
+   <!-- Header Section -->
+   <header class="app-header">
+    <div class="user-welcome">
+        <h1>Welcome, Nset Prep</h1>
+        <p class="date"></p>
     </div>
+    <div class="header-icons">
+        <div class="theme-buttons">
+            <button id="lightModeBtn" class="theme-btn light-btn" onclick="setThemeMode('light')">
+                <i class="fas fa-sun"></i>
+            </button>
+            <button id="darkModeBtn" class="theme-btn dark-btn" onclick="setThemeMode('dark')">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+        <a href="profile.html" class="profile-link">
+            <i class="fas fa-user" id="profileIcon"></i>
+        </a>
+    </div>
+</header>
 
+   <!-- Enhanced Welcome Banner -->
+<section class="welcome-hero" aria-labelledby="welcome-heading">
+    <div class="welcome-content">
+      <div class="welcome-text">
+        <h1 id="welcome-heading" class="welcome-title">
+          Welcome, <span class="highlight">Our Future NSTian!</span>
+          <span class="rocket" aria-hidden="true">🚀</span>
+        </h1>
+        <p class="welcome-subtitle">Begin your extraordinary journey with us today</p>
+        <button class="welcome-cta" id="aboutBtn">
+          Discover More
+          <svg class="cta-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="logo-container">
+        <div class="logo-circle" aria-hidden="true">
+          <span class="logo-letter">N</span>
+          <div class="logo-particles">
+            <span class="particle"></span>
+            <span class="particle"></span>
+            <span class="particle"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="welcome-decoration">
+      <div class="decoration-circle"></div>
+      <div class="decoration-circle"></div>
+    </div>
+  </section>
     <!-- Navigation Tabs -->
     <nav>
         <ul class="tabs">
@@ -93,4 +118,3 @@
     <script src="script.js"></script>
 </body>
 </html> 
-
