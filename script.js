@@ -21,49 +21,49 @@ const cardData = {
             title: "Introduction & Personal Insight", 
             count: 7, 
             subject: "Interview",
-            link: "https://dyhardx.github.io/Nset-Interview-Web/intro.html" 
+            link: "https://dyhardx.github.io/Nset-Prep/intro.html" 
         },
         { 
             title: "Academic Background & Interests", 
             count: 9, 
             subject: "Interview",
-            link: "https://dyhardx.github.io/Nset-Interview-Web/bg.html" 
+            link: "https://dyhardx.github.io/Nset-Prep/bg.html" 
         },
         { 
             title: "Why This College?", 
             count: 7, 
             subject: "Interview",
-            link: "https://dyhardx.github.io/Nset-Interview-Web/college.html" 
+            link: "https://dyhardx.github.io/Nset-Prep/college.html" 
         },
         { 
             title: "Guesstimate Questions", 
             count: 17, 
             subject: "Interview",
-            link: "https://dyhardx.github.io/Nset-Interview-Web/gt.html" 
+            link: "https://dyhardx.github.io/Nset-Prep/gt.html" 
         },
         { 
             title: "Mathematics", 
             count: 13, 
             subject: "Interview",
-            link: "https://dyhardx.github.io/Nset-Interview-Web/math.html" 
+            link: "https://dyhardx.github.io/Nset-Prep/math.html" 
         },
         { 
             title: "Tech & AI", 
             count: 2, 
             subject: "Interview",
-            link: "https://dyhardx.github.io/Nset-Interview-Web/ai.html" 
+            link: "https://dyhardx.github.io/Nset-Prep/ai.html" 
         },
         { 
             title: "Career Goals & Future Plans", 
             count: 10, 
             subject: "Interview",
-            link: "https://dyhardx.github.io/Nset-Interview-Web/goal.html" 
+            link: "https://dyhardx.github.io/Nset-Prep/goal.html" 
         },
         { 
             title: "Extracurricular & Hobbies", 
             count: 9, 
             subject: "Interview",
-            link: "https://dyhardx.github.io/Nset-Interview-Web/hobbie.html" 
+            link: "https://dyhardx.github.io/Nset-Prep/hobbie.html" 
         }
     ],
     english: [
