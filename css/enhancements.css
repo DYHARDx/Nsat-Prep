@@ -1,0 +1,500 @@
+/* UI Enhancements */
+
+/* Enhanced Header */
+.app-header {
+    margin-bottom: 30px;
+}
+
+.user-welcome h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.date {
+    font-size: 16px;
+}
+
+.header-icons i {
+    transition: color 0.3s;
+}
+
+.header-icons i:hover {
+    color: var(--primary-color);
+}
+
+/* Theme Buttons */
+.theme-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 15px;
+}
+
+.theme-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--text-secondary, #666);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.theme-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.theme-btn.active {
+    transform: scale(1.1);
+}
+
+.light-btn.active {
+    background-color: #f9a825;
+    color: white;
+}
+
+.dark-btn.active {
+    background-color: #5c6bc0;
+    color: white;
+}
+
+.light-btn i, .dark-btn i {
+    font-size: 16px;
+}
+
+/* Profile Link */
+.profile-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.profile-wrapper {
+    position: relative;
+}
+
+.profile-wrapper i {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Enhanced Welcome Banner */
+.welcome-banner {
+    background: linear-gradient(135deg, #5c6bc0 0%, #3949ab 100%);
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+}
+
+.welcome-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
+    z-index: 1;
+}
+
+.welcome-text {
+    padding: 0;
+    z-index: 2;
+    position: relative;
+}
+
+.welcome-text h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.rocket {
+    display: inline-block;
+    animation: rocketFloat 2s ease-in-out infinite;
+    margin-left: 5px;
+    font-size: 30px;
+}
+
+.about-btn {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    transition: background-color 0.3s;
+}
+
+.about-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Enhanced logo */
+.logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Enhanced Navigation */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 95;
+    background-color: var(--background-color);
+    padding: 10px 0;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 0;
+}
+
+.tab {
+    transition: all 0.3s;
+}
+
+.tab:hover:not(.active) {
+    transform: translateY(-2px);
+}
+
+/* Enhanced Cards */
+.quiz-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+    border-left: 3px solid transparent;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 22px;
+}
+
+.quiz-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border-left: 3px solid var(--primary-color);
+}
+
+.quiz-info {
+    flex: 1;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.quiz-info h3 {
+    font-weight: 600;
+    transition: color 0.3s;
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.quiz-card:hover .quiz-info h3 {
+    color: var(--primary-color);
+}
+
+.quiz-count {
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: block;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.quiz-action {
+    margin-top: auto;
+}
+
+.start-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s, transform 0.2s;
+    font-size: 14px;
+}
+
+.start-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.start-btn:active {
+    transform: translateY(0);
+}
+
+.card-image {
+    position: absolute;
+    right: 15px;
+    bottom: 20px;
+    width: 90px;
+    height: 90px;
+    opacity: 0.15;
+    z-index: 1;
+    transition: opacity 0.3s, transform 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.subject-icon {
+    max-width: 100%;
+    max-height: 100%;
+    width: 70px;
+    height: 70px;
+}
+
+.quiz-card:hover .card-image {
+    opacity: 0.25;
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Enhanced Notification UI */
+.notification-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--red-color);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.notification-item {
+    padding: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.notification-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(33, 150, 243, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+.notification-content {
+    flex: 1;
+}
+
+.notification-item.unread {
+    background-color: rgba(33, 150, 243, 0.05);
+    position: relative;
+}
+
+.notification-item.unread .notification-icon {
+    background-color: rgba(33, 150, 243, 0.2);
+}
+
+.notification-dropdown {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.notification-header {
+    background-color: var(--card-background);
+    padding: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Mode Enhancements */
+body.dark-mode .quiz-card:hover, 
+[data-theme="dark"] .quiz-card:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .notification-item.unread, 
+[data-theme="dark"] .notification-item.unread {
+    background-color: rgba(33, 150, 243, 0.1);
+}
+
+body.dark-mode .notification-icon, 
+[data-theme="dark"] .notification-icon {
+    background-color: rgba(33, 150, 243, 0.15);
+}
+
+body.dark-mode .notification-item.unread .notification-icon, 
+[data-theme="dark"] .notification-item.unread .notification-icon {
+    background-color: rgba(33, 150, 243, 0.25);
+}
+
+body.dark-mode .notification-item, 
+[data-theme="dark"] .notification-item {
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .notification-header, 
+[data-theme="dark"] .notification-header {
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Dark Mode Toggle Enhancement */
+.theme-toggle {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    padding: 5px;
+}
+
+.theme-toggle label {
+    box-shadow: none;
+}
+
+/* Responsive Improvements */
+@media (max-width: 767px) {
+    .welcome-banner {
+        padding: 20px 15px;
+        text-align: center;
+        flex-direction: column;
+    }
+    
+    .welcome-text {
+        padding: 0 0 15px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .welcome-text h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+        line-height: 1.4;
+    }
+    
+    .logo {
+        margin: 10px auto 0;
+    }
+    
+    .about-btn {
+        width: 100%;
+        max-width: 200px;
+        margin: 5px auto 0;
+    }
+    
+    nav {
+        margin-top: -15px;
+        margin-bottom: 20px;
+    }
+    
+    .tabs {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding: 5px 0;
+    }
+    
+    .tab {
+        flex: 0 0 auto;
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    .theme-buttons {
+        gap: 5px;
+    }
+
+    .theme-btn {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .header-icons {
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* Dark Mode Enhancements */
+body.dark-mode .welcome-banner, 
+[data-theme="dark"] .welcome-banner {
+    background: linear-gradient(135deg, #303f9f 0%, #1a237e 100%);
+}
+
+body.dark-mode nav, 
+[data-theme="dark"] nav {
+    background-color: var(--background-color);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .quiz-card:hover, 
+[data-theme="dark"] .quiz-card:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .theme-btn, 
+[data-theme="dark"] .theme-btn {
+    background-color: #333;
+    color: #aaa;
+}
+
+/* Dark mode specific button styles */
+body.dark-mode .light-btn.active,
+[data-theme="dark"] .light-btn.active {
+    background-color: #f9a825;
+    color: white;
+}
+
+body.dark-mode .dark-btn.active,
+[data-theme="dark"] .dark-btn.active {
+    background-color: #5c6bc0; 
+    color: white;
+}
+
+/* Animation for rocket */
+@keyframes rocketFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px) rotate(5deg);
+    }
+} 

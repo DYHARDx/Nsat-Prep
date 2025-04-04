@@ -1,0 +1,305 @@
+/* Profile Page Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.status-bar {
+    background-color: #333;
+    color: white;
+    padding: 5px 15px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+}
+
+.status-bar .left {
+    font-weight: bold;
+}
+
+.status-bar .right {
+    display: flex;
+    gap: 10px;
+}
+
+.profile-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.back-button {
+    position: absolute;
+    left: 15px;
+    top: 20px;
+    color: white;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.profile-title {
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.profile-content {
+    padding: 20px;
+}
+
+.profile-pic-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+    margin-top: -60px;
+}
+
+.user-name {
+    margin: 10px 0 5px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.user-title {
+    margin: 0;
+    color: #666;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.bio-section {
+    margin: 30px 0;
+    padding: 0 15px;
+}
+
+.bio-text {
+    line-height: 1.6;
+    color: #555;
+}
+
+.notice-section {
+    margin: 25px 0;
+    padding: 0 15px;
+}
+
+.notice-box {
+    background-color: #fff9db;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #ffab00;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.notice-title {
+    margin: 0 0 10px;
+    color: #f59f00;
+    font-size: 1rem;
+}
+
+.notice-text {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.divider {
+    height: 10px;
+    background-color: #f0f0f0;
+    margin: 30px 0;
+}
+
+.section-heading {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0 15px;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.social-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 2px;
+    background-color: white;
+    text-decoration: none;
+    color: #333;
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+.share-icon {
+    color: #4caf50;
+}
+
+.fb-icon {
+    color: #1877f2;
+}
+
+.yt-icon {
+    color: #ff0000;
+}
+
+.social-label {
+    flex: 1;
+}
+
+.social-arrow {
+    color: #999;
+}
+
+.school-info {
+    padding: 15px;
+    background-color: white;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+}
+
+.school-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.school-details {
+    flex: 1;
+}
+
+.school-name {
+    margin: 0 0 5px;
+    font-size: 1rem;
+}
+
+.school-type {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.action-items {
+    margin-top: 30px;
+}
+
+.action-link {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 2px;
+    background-color: white;
+    text-decoration: none;
+    color: #333;
+}
+
+.action-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    color: #764ba2;
+    font-size: 1.2rem;
+}
+
+.action-label {
+    flex: 1;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .status-bar {
+    background-color: #000;
+}
+
+body.dark-mode .profile-header {
+    background: linear-gradient(135deg, #4a5680 0%, #523b6d 100%);
+}
+
+body.dark-mode .social-item,
+body.dark-mode .school-info,
+body.dark-mode .action-link {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+body.dark-mode .notice-box {
+    background-color: #333;
+    border-left-color: #ffab00;
+}
+
+body.dark-mode .notice-title {
+    color: #ffab00;
+}
+
+body.dark-mode .notice-text,
+body.dark-mode .user-title,
+body.dark-mode .school-type {
+    color: #aaa;
+}
+
+body.dark-mode .divider {
+    background-color: #2a2a2a;
+}
+
+body.dark-mode .section-heading {
+    color: #aaa;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .profile-content {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+/* Animation */
+.profile-pic {
+    transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05);
+} 

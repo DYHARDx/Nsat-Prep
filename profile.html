@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Nset Prep App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-light: #3b82f6;
+            --primary-dark: #1e40af;
+            --text-color: #1f2937;
+            --text-muted: #64748b;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --hover-bg: #f1f5f9;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            max-width: 480px;
+            margin: 0 auto;
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .phone-frame {
+            width: 100%;
+            max-width: 480px;
+            background: var(--bg-color);
+            overflow-x: hidden;
+            padding-bottom: 32px;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Profile Section */
+        .profile-section {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+            padding: 32px 20px 40px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: white;
+            position: relative;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+
+        .profile-section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: linear-gradient(to top, rgba(0,0,0,0.1), transparent);
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            z-index: 0;
+        }
+
+        .profile-pic {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        .profile-pic:active {
+            transform: scale(0.98);
+        }
+
+        .profile-info {
+            z-index: 1;
+            flex: 1;
+        }
+
+        .profile-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-tagline {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.85);
+            margin-top: 4px;
+        }
+
+        .bio-container {
+            margin: 0 16px;
+            position: relative;
+            margin-top: -20px;
+            z-index: 2;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .bio-text {
+            padding: 20px;
+            line-height: 1.7;
+            color: var(--text-color);
+            font-size: 15px;
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Cards */
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin: 28px 16px 12px;
+            padding-bottom: 8px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        .card-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 16px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            padding: 0 16px;
+            transition: var(--transition);
+        }
+
+        .card {
+            padding: 16px;
+            background: var(--card-bg);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            box-shadow: var(--shadow);
+            position: relative;
+            transition: var(--transition);
+            border-left: 3px solid transparent;
+        }
+
+        .card:active {
+            background-color: var(--hover-bg);
+            transform: translateX(3px);
+            border-left-color: var(--primary-color);
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            width: 8px;
+            height: 8px;
+            border-right: 2px solid #cbd5e1;
+            border-bottom: 2px solid #cbd5e1;
+            transform: translateY(-50%) rotate(-45deg);
+            transition: var(--transition);
+        }
+
+        .card:active::after {
+            transform: translateY(-50%) rotate(-45deg) scale(1.2);
+            border-color: var(--primary-color);
+        }
+
+        .card-icon {
+            width: 46px;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            background: var(--hover-bg);
+            border-radius: 12px;
+            transition: var(--transition);
+        }
+
+        .card:active .card-icon {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            flex: 1;
+            padding-right: 28px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0;
+            color: var(--text-color);
+        }
+
+        .card-subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin: 4px 0 0 0;
+        }
+
+        .school-name {
+            padding: 20px;
+            color: var(--primary-color);
+            font-weight: 700;
+            text-align: center;
+            font-size: 18px;
+            margin: 36px 0 24px;
+            position: relative;
+        }
+
+        .school-name::before,
+        .school-name::after {
+            content: '';
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--primary-light), transparent);
+            width: 40%;
+            top: 50%;
+        }
+
+        .school-name::before {
+            left: 0;
+        }
+
+        .school-name::after {
+            right: 0;
+        }
+
+        .theme-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 5;
+        }
+
+        .theme-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: white;
+            font-size: 15px;
+            backdrop-filter: blur(4px);
+            transition: var(--transition);
+        }
+
+        .theme-btn:active {
+            background: rgba(255, 255, 255, 0.35);
+            transform: scale(0.95);
+        }
+
+        .theme-btn.active {
+            background: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode {
+            --bg-color: #000000;
+            --card-bg: #1a1a1a;
+            --text-color: #ffffff;
+            --text-muted: #a1a1aa;
+            --border-color: #333333;
+            --hover-bg: #222222;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: white;
+            font-size: 16px;
+            backdrop-filter: blur(4px);
+            z-index: 5;
+            transition: var(--transition);
+        }
+
+        .back-button:active {
+            background: rgba(255, 255, 255, 0.35);
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-frame">
+        <div class="profile-section">
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            
+            <img src="https://avatars.githubusercontent.com/u/1?v=4" alt="Profile" class="profile-pic">
+            
+            <div class="profile-info">
+                <h1 class="profile-name">@ Aman Singh</h1>
+                <p class="profile-tagline">Student</p>
+            </div>
+            
+            <div class="theme-buttons">
+                <button id="lightModeBtn" class="theme-btn light-btn" onclick="setThemeMode('light')">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <button id="darkModeBtn" class="theme-btn dark-btn" onclick="setThemeMode('dark')">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="bio-container">
+            <div class="bio-text">
+                I am a passionate software developer focused on FAANG placement preparation and building impactful solutions. I recently developed an app to help Newton School Of Technology students prepare for interviews and exams. Constantly learning and improving to create innovative tech solutions.
+            </div>
+        </div>
+
+        <h2 class="section-title">Social</h2>
+        <div class="card-list">
+            <a href="javascript:void(0)" onclick="shareApp()" class="card-link">
+                <div class="card">
+                    <div class="card-icon" style="background: rgba(5, 150, 105, 0.1)">
+                        <i class="fas fa-share-alt" style="color: #059669;"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Share App</h3>
+                        <p class="card-subtitle">Google Search - Nset Prep App</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://www.linkedin.com/in/dyhardx?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="card-link">
+                <div class="card">
+                    <div class="card-icon" style="background: rgba(0, 119, 181, 0.1)">
+                        <i class="fab fa-linkedin" style="color: #0077b5;"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">LinkedIn</h3>
+                        <p class="card-subtitle">Connect with me on LinkedIn</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://www.youtube.com/@dyhardx" class="card-link">
+                <div class="card">
+                    <div class="card-icon" style="background: rgba(220, 38, 38, 0.1)">
+                        <i class="fab fa-youtube" style="color: #dc2626;"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Youtube</h3>
+                        <p class="card-subtitle">YouTube Search - DYHARD</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="school-name">
+            Newton School Of Technology
+        </div>
+
+        <h2 class="section-title">Links</h2>
+        <div class="card-list">
+            <a href="https://www.newtonschool.co/" class="card-link">
+                <div class="card">
+                    <div class="card-icon" style="background: rgba(37, 99, 235, 0.1)">
+                        <i class="fas fa-globe" style="color: #2563eb;"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Website</h3>
+                        <p class="card-subtitle">Watch.....</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://www.newtonschool.co/newton-school-of-technology-nst/apply-referral/?utm_source=referral&utm_medium=dxaman37&utm_campaign=btech-computer-science-portal-referral" class="card-link">
+                <div class="card">
+                    <div class="card-icon" style="background: rgba(5, 150, 105, 0.1)">
+                        <i class="fas fa-file-alt" style="color: #059669;"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Addmission Form</h3>
+                        <p class="card-subtitle">Get  ₹300 discount.....</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function setThemeMode(mode) {
+            console.log('Setting theme mode to:', mode);
+            if (mode === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.body.setAttribute('data-theme', 'dark');
+                document.getElementById('lightModeBtn').classList.remove('active');
+                document.getElementById('darkModeBtn').classList.add('active');
+            } else {
+                document.body.classList.remove('dark-mode');
+                document.body.setAttribute('data-theme', 'light');
+                document.getElementById('lightModeBtn').classList.add('active');
+                document.getElementById('darkModeBtn').classList.remove('active');
+            }
+            localStorage.setItem('themeMode', mode);
+        }
+
+        function shareApp() {
+            const shareText = "Check out this amazing app for Newton School students! It helps with interview preparation and exams. Download now: https://nstian-learning-portal.com";
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'NSTian Learning Portal',
+                    text: shareText,
+                    url: window.location.origin,
+                })
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing:', error));
+            } else {
+                // Fallback for browsers that don't support the Web Share API
+                const textarea = document.createElement('textarea');
+                textarea.value = shareText;
+                textarea.style.position = 'fixed';  // Prevent scrolling to bottom
+                document.body.appendChild(textarea);
+                textarea.focus();
+                textarea.select();
+                
+                try {
+                    document.execCommand('copy');
+                    alert('Link copied to clipboard! Share with your friends.');
+                } catch (err) {
+                    console.error('Failed to copy text: ', err);
+                    alert('Failed to copy the share link.');
+                }
+                
+                document.body.removeChild(textarea);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeMode = localStorage.getItem('themeMode') || 'light';
+            setThemeMode(themeMode);
+            
+            // Animate cards on load
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(15px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.4s ease-out';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 + (index * 50));
+            });
+        });
+    </script>
+</body>
+</html> 

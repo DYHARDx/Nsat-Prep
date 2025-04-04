@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSTian Learning Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/enhancements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="app-header">
+        <div class="user-welcome">
+            <h1>Welcome, Nset Prep</h1>
+            <p class="date"></p>
+        </div>
+        <div class="header-icons">
+            <div class="theme-buttons">
+                <button id="lightModeBtn" class="theme-btn light-btn" onclick="setThemeMode('light')">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <button id="darkModeBtn" class="theme-btn dark-btn" onclick="setThemeMode('dark')">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <a href="profile.html" class="profile-link">
+                <i class="fas fa-user" id="profileIcon"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Welcome Banner -->
+    <div class="welcome-banner">
+        <div class="welcome-text">
+            <h2>Welcome, Our Future NSTian! <span class="rocket">🚀</span></h2>
+            <button class="about-btn" id="aboutBtn">About...</button>
+        </div>
+        <div class="logo">N</div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <nav>
+        <ul class="tabs">
+            <li class="tab active" data-tab="interview">Interview</li>
+            <li class="tab" data-tab="english">English</li>
+            <li class="tab" data-tab="mathematics">Mathematics</li>
+            <li class="tab" data-tab="general">General Aptitude</li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main>
+        <!-- Interview Section -->
+        <div class="cards-container interview active"></div>
+
+        <!-- English Section -->
+        <div class="cards-container english"></div>
+
+        <!-- Mathematics Section -->
+        <div class="cards-container mathematics"></div>
+
+        <!-- General Aptitude Section -->
+        <div class="cards-container general"></div>
+    </main>
+
+
+    <script>
+        // Direct theme mode function
+        function setThemeMode(mode) {
+            console.log('Setting theme mode to:', mode);
+            if (mode === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.body.setAttribute('data-theme', 'dark');
+                document.getElementById('lightModeBtn').classList.remove('active');
+                document.getElementById('darkModeBtn').classList.add('active');
+            } else {
+                document.body.classList.remove('dark-mode');
+                document.body.setAttribute('data-theme', 'light');
+                document.getElementById('lightModeBtn').classList.add('active');
+                document.getElementById('darkModeBtn').classList.remove('active');
+            }
+            localStorage.setItem('themeMode', mode);
+        }
+
+        // Apply theme on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeMode = localStorage.getItem('themeMode') || 'light';
+            setThemeMode(themeMode);
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html> 

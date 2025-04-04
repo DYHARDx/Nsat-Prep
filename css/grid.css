@@ -1,0 +1,102 @@
+/* Grid Layout CSS */
+
+/* Desktop (3 columns) */
+@media (min-width: 992px) {
+    /* Default grid layout */
+    .cards-container {
+        display: none;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    
+    .cards-container.active {
+        display: grid;
+    }
+    
+    /* Interview - 9 cards, 3x3 grid */
+    .cards-container.interview {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* English - 6 cards, 3x2 grid */
+    .cards-container.english {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Mathematics - 5 cards, 3x2 grid (with 1 empty cell) */
+    .cards-container.mathematics {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* General - 4 cards, 2x2 grid */
+    .cards-container.general {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Tablet (2 columns) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .cards-container {
+        display: none;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .cards-container.active {
+        display: grid;
+    }
+    
+    /* All sections use 2 column layout on tablets */
+    .cards-container.interview,
+    .cards-container.english,
+    .cards-container.mathematics,
+    .cards-container.general {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile (1 column) */
+@media (max-width: 767px) {
+    .cards-container {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .cards-container.active {
+        display: flex;
+    }
+}
+
+/* Enhanced card styling */
+.quiz-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.quiz-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background-color: var(--primary-color);
+    transform: translateX(-5px);
+    transition: transform 0.3s;
+}
+
+.quiz-card:hover::after {
+    transform: translateX(0);
+}
+
+/* Animated rocket */
+.rocket {
+    display: inline-block;
+    animation: rocketFloat 2s ease-in-out infinite;
+}
+
+@keyframes rocketFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+} 
