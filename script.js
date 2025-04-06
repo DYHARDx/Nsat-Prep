@@ -21,49 +21,49 @@ const cardData = {
             title: "Introduction & Personal Insight", 
             count: 7, 
             subject: "Interview",
-            link: "https://dyhardx.github.io/Nset-Prep/intro.html" 
+            link: "https://dyhardx.github.io/Nsat-Prep/intro.html" 
         },
         { 
             title: "Academic Background & Interests", 
             count: 9, 
             subject: "Interview",
-            link: "https://dyhardx.github.io/Nset-Prep/bg.html" 
+            link: "https://dyhardx.github.io/Nsat-Prep/bg.html" 
         },
         { 
             title: "Why This College?", 
             count: 7, 
             subject: "Interview",
-            link: "https://dyhardx.github.io/Nset-Prep/college.html" 
+            link: "https://dyhardx.github.io/Nsat-Prep/college.html" 
         },
         { 
             title: "Guesstimate Questions", 
             count: 17, 
             subject: "Interview",
-            link: "https://dyhardx.github.io/Nset-Prep/gt.html" 
+            link: "https://dyhardx.github.io/Nsat-Prep/gt.html" 
         },
         { 
             title: "Mathematics", 
             count: 13, 
             subject: "Interview",
-            link: "https://dyhardx.github.io/Nset-Prep/math.html" 
+            link: "https://dyhardx.github.io/Nsat-Prep/math.html" 
         },
         { 
             title: "Tech & AI", 
             count: 2, 
             subject: "Interview",
-            link: "https://dyhardx.github.io/Nset-Prep/ai.html" 
+            link: "https://dyhardx.github.io/Nsat-Prep/ai.html" 
         },
         { 
             title: "Career Goals & Future Plans", 
             count: 10, 
             subject: "Interview",
-            link: "https://dyhardx.github.io/Nset-Prep/goal.html" 
+            link: "https://dyhardx.github.io/Nsat-Prep/goal.html" 
         },
         { 
             title: "Extracurricular & Hobbies", 
             count: 9, 
             subject: "Interview",
-            link: "https://dyhardx.github.io/Nset-Prep/hobbie.html" 
+            link: "https://dyhardx.github.io/Nsat-Prep/hobbie.html" 
         }
     ],
     english: [
